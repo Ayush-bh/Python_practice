@@ -8,10 +8,8 @@ Helpfull to understand the concept of json std. lib. and some other basic functi
 For working:-
 
 1. Create a folder(name - teaching) in the same location where you will place the main.py file.
-2. Extraxt the zip file.
-3. Copy the Data.json file in teaching folder.
-4. Now run the main.py file.
+2. Copy the Data.json file in teaching folder.
+3. Now run the main.py file.
 
-----------------------------------------------------------------------------------------------------
-
+---------------------------------------------X-------------------------------------------------------
 
