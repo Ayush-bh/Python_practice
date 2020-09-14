@@ -1,5 +1,5 @@
-import json
-from difflib import get_close_matches
+import json              #std lib to wrok with json file format
+from difflib import get_close_matches       #compairs with the closest value and return it.
 
 data = json.load (open ("teaching/data.json"))
 
@@ -8,9 +8,9 @@ def translate(w):
     w = w.lower ()
     if w in data:
         return data[w]
-    elif w.title () in data:  # if user entered "texas" this will check for "Texas" as well.
+    elif w.title () in data:  # if user entered "delhi" this will check for "Delhi" as well.(Noun)
         return data[w.title ()]
-    elif w.upper () in data:  # in case user enters words like USA or NATO
+    elif w.upper () in data:  # in case user enters words like USA or NATO.(Acronyms)
         return data[w.upper ()]
     elif len (get_close_matches (w, data.keys ())) > 0:
         yn = input (
