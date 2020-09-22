@@ -1,6 +1,6 @@
 # Python_basic_dictionary
 
-It is a basic Intractive Dictionary program i built while learning python.
+It is a basic Intractive Dictionary program i built using functions while learning python.
 Helpfull to understand the concept of json std. lib. and some other basic functions.
 
 ---------------------------------------------------------------------------------------------------
