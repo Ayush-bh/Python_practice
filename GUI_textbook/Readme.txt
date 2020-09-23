@@ -8,6 +8,11 @@ that is, creating class and objects.
 -----------------------------------------------------------------------------------------
 Working:
 
+note: i have already given a "book.db" file with some sample data.
+if you wish to make a new DB, the program will create one which i mentioned in the backend here(↓)
+and initially it will be empty so you need to fill all the text box with some entry and 
+press ADD button and then view all button,to see entry.
+
 backend:
 Initially it creats a Database named "book.db" if it is not present.(used sqlite3).
 defined diffrent functions for diffrent operations. 
