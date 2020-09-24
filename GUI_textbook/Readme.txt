@@ -1,11 +1,11 @@
 This is a GUI application made with the help of "Tkinter".
-It is a simple bookstore app. with which you can perform diffrent operations
-like Add, update, delete, search books information.
+It is a simple bookstore app. which stores the data in a database (the informations you provide)
+also you can perform diffrent operations like Add, update, delete and search.
 
 It helped me to understand how tkinter and sqlite3 works.
-also this is the first program during my practice where i have used the OOP concept
-that is, creating class and objects.
------------------------------------------------------------------------------------------
+also this is the first program during my practice in which i have used the OOP concept
+that is, creating classes and objects.
+-----------------------------------------------------------------------------------------------------------
 Working:
 
 note: i have already given a "book.db" file with some sample data.
