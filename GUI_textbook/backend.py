@@ -35,9 +35,9 @@ class Database:
     def __del__(self):
         self.conn.close()
 
-
-
-
+#-------------------------------------------------------------
+#use: checking the working of above funtions 
+#-------------------------------------------------------------
 #nsert("The sun","will","1992","1000001")
 #delete(2)
 #update(4,"the moon","smooth",1993,19992020)
