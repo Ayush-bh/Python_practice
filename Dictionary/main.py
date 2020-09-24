@@ -1,9 +1,10 @@
 import json              #std lib to wrok with json file format
 from difflib import get_close_matches       #compairs with the closest value and return it.
 
-data = json.load (open ("teaching/data.json"))
-
-
+data = json.load (open ("teaching/data.json"))   #loading data
+#-------------------------------------------------------------------------------------------------
+#compairing the keys in the file and finding the match. 
+#-------------------------------------------------------------------------------------------------
 def translate(w):
     w = w.lower ()
     if w in data:
@@ -23,7 +24,9 @@ def translate(w):
             return "\nWe didn't understand your entry.\n"
     else:
         return "\nThe word doesn't exist. Please double check it.\n"
-
+#----------------------------------------------------------------------------------------------------------
+#returning the value assigned to the key
+#----------------------------------------------------------------------------------------------------------
 
 def ip():
     word = input ("\nEnter word: \n")
