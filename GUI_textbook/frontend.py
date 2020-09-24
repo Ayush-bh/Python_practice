@@ -1,16 +1,15 @@
 from tkinter import *
-from backend import Database
+from backend import Database #connecting database
 
-database=Database()
-window=Tk()
+database=Database()          
+window=Tk()                 #creating a window 
 
 class Window(object):
 
-    def __init__(self,window):
+    def __init__(self,window):              #initializing 
 
         self.window = window
-
-        self.window.wm_title("BookStore")
+        self.window.wm_title("BookStore")       #window title
 
         l1=Label(window,text="Title")
         l1.grid(row=0,column=0)
@@ -21,9 +20,11 @@ class Window(object):
         l3=Label(window,text="Year")
         l3.grid(row=1,column=0)
 
-        l4=Label(window,text="ISBN")
+        l4=Label(window,text="No.")
         l4.grid(row=1,column=2)
-
+#------------------------------------------------------------------------
+# Text box field
+#------------------------------------------------------------------------
         self.title_text=StringVar()
         self.e1=Entry(window,textvariable=self.title_text)
         self.e1.grid(row=0,column=1)
@@ -36,21 +37,25 @@ class Window(object):
         self.e3=Entry(window,textvariable=self.year_text)
         self.e3.grid(row=1,column=1)
 
-        self.isbn_text=StringVar()
-        self.e4=Entry(window,textvariable=self.isbn_text)
+        self.No_text=StringVar()
+        self.e4=Entry(window,textvariable=self.No_text)
         self.e4.grid(row=1,column=3)
 
-        self.list1=Listbox(window, height=6,width=35)
-        self.list1.grid(row=2,column=0,rowspan=6,columnspan=2)
-
+        self.list=Listbox(window, height=6,width=35)
+        self.list.grid(row=2,column=0,rowspan=6,columnspan=2)
+#---------------------------------------------------------------------------
+# Scroll bar
+#----------------------------------------------------------------------------
         sb1=Scrollbar(window)
         sb1.grid(row=2,column=2,rowspan=6)
 
-        self.list1.configure(yscrollcommand=sb1.set)
+        self.list.configure(yscrollcommand=sb1.set)
         sb1.configure(command=self.list1.yview)
-
-        self.list1.bind('<<ListboxSelect>>',self.get_selected_row) #bind here helps to bind a function for to select rows in the listbox
-
+        
+        self.list.bind('<<ListboxSelect>>',self.get_selected_row) #bind here helps to bind a function for to select rows in the listbox
+#----------------------------------------------------------------------------------------
+# buttons
+#----------------------------------------------------------------------------------------
         b1=Button(window,text="View all", width=12,command=self.view_command)
         b1.grid(row=2,column=3)
 
@@ -70,7 +75,7 @@ class Window(object):
         b6.grid(row=7,column=3)
 
     def get_selected_row(self,event):
-        index=self.list1.curselection()[0]
+        index=self.list.curselection()[0]
         self.selected_tuple=self.list1.get(index)
         self.e1.delete(0,END)
         self.e1.insert(END,self.selected_tuple[1])
@@ -82,25 +87,25 @@ class Window(object):
         self.e4.insert(END,self.selected_tuple[4])
 
     def view_command(self):
-        self.list1.delete(0,END)
+        self.list.delete(0,END)
         for row in database.view():
-            self.list1.insert(END,row)
+            self.list.insert(END,row)
 
     def search_command(self):
-        self.list1.delete(0,END)
-        for row in database.search(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.isbn_text.get()):
-            self.list1.insert(END,row)
+        self.list.delete(0,END)
+        for row in database.search(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.No_text.get()):
+            self.list.insert(END,row)
 
     def add_command(self):
-        database.insert(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.isbn_text.get())
-        self.list1.delete(0,END)
-        self.list1.insert(END,(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.isbn_text.get()))
+        database.insert(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.No_text.get())
+        self.list.delete(0,END)
+        self.list.insert(END,(self.title_text.get(),self.author_text.get(),self.year_text.get(),self.No_text.get()))
 
     def delete_command(self):
         database.delete(self.selected_tuple[0])
 
     def update_command(self):
-        database.update(self.selected_tuple[0],self.title_text.get(),self.author_text.get(),self.year_text.get(),self.isbn_text.get())
+        database.update(self.selected_tuple[0],self.title_text.get(),self.author_text.get(),self.year_text.get(),self.No_text.get())
 
 
 Window(window)
