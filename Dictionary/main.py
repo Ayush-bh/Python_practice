@@ -9,21 +9,21 @@ def translate(w):
     w = w.lower ()
     if w in data:
         return data[w]
-    elif w.title () in data:  # if user entered "delhi" this will check for "Delhi" as well.(Noun)
+    elif w.title () in data:  # if user entered "texas" this will check for "Texas" as well.
         return data[w.title ()]
-    elif w.upper () in data:  # in case user enters words like USA or NATO.(Acronyms)
+    elif w.upper () in data:  # in case user enters words like USA or NATO
         return data[w.upper ()]
     elif len (get_close_matches (w, data.keys ())) > 0:
-        yn = input (
-            "\ndo you mean %s instead? Enter Y if yes or N if no: \n" % get_close_matches (w, data.keys ())[0])
+        yn = input ("\ndo you mean %s instead? Enter Y if yes or N if no: "
+                    "\n" % get_close_matches (w, data.keys ())[0])
         if yn.lower () == "y":
             return data[get_close_matches (w, data.keys ())[0]]
         elif yn.lower () == "n":
-            return "\nThe word doesn't exist. Please double check it.\n"
+            print("\nThe word doesn't exist. Please double check it.\n")
         else:
-            return "\nWe didn't understand your entry.\n"
+            print("\nWe didn't understand your entry.\n")
     else:
-        return "\nThe word doesn't exist. Please double check it.\n"
+        print("\nThe word doesn't exist. Please double check it.\n")
 #----------------------------------------------------------------------------------------------------------
 #returning the value assigned to the key
 #----------------------------------------------------------------------------------------------------------
@@ -36,17 +36,17 @@ def ip():
             print (item)
     else:
         print (output)
-
-
+#------------------------------------------------------------------------------------------------------------
+#callng the main menu function 
+#-----------------------------------------------------------------------------------------------------------
 while True:
     def menu():
         mn = input ("\nplease select \n1.search \n2.exit\nEnter number: ")
-        if mn.lower () == "1":
+        if mn == "1":
             return ip ()
-        elif mn.lower () == "2":
+        elif mn  == "2":
             return exit ()
         else:
-            return "please check the number"
+            print("please check the number")
 
-
-    print (menu ())
+    menu ()
