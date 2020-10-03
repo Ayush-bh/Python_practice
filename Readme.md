@@ -1,8 +1,8 @@
 # python_practice
 
-#All these programs are small concept understanding program.
+All these programs are small concept understanding program.
 
-#Helped me to understand working of diffrent libraries that 
+Helped me to understand working of diffrent libraries that 
 i have used in these programs 
 while learning python.
 
