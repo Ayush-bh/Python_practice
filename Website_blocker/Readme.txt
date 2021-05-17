@@ -6,7 +6,7 @@ See the program line by line to understand
 ----------------------------------------------------------------------------
 For working:
 
-1. First is you need to fine the "host file" of you machine.
+1. First is you need to find the "host file" of you machine.
 	#C:\Users\abhar\OneDrive\Desktop\Python projects\website_block
 	\hosts
 	The path about is for windows user.
